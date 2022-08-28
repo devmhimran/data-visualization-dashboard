@@ -1,17 +1,16 @@
 import React from 'react';
 import loginImage from '../Assets/dashboard-login.gif';
 import { Link } from "react-router-dom";
-import {
-    Card,
-    CardBody,
-    Input,
-    Button,
-} from "@material-tailwind/react";
+import { Card, CardBody, Input, Button } from "@material-tailwind/react";
 import { BsGoogle } from 'react-icons/bs';
-
+import logo from '../Assets/dashboard-visualization-logo.svg';
+// items-center justify-center flex
 const Login = () => {
     return (
-        <div className="login container h-screen max-w-screen-xl items-center justify-center flex  mx-auto ">
+        <div className="login container max-w-screen-xl mx-auto h-screen flex items-center">
+            <div className='logo__main py-4 absolute top-5'>
+                <img src={logo} alt="" />
+            </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-4 ">
                 <div class="lg:col-span-2 lg:block md:block hidden">
                     <div className='login__image'>
