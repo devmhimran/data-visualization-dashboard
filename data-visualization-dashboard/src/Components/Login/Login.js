@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
 import loginImage from '../Assets/dashboard-login.gif';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Card, CardBody, Input, Button } from "@material-tailwind/react";
 import { BsGoogle } from 'react-icons/bs';
 import logo from '../Assets/dashboard-visualization-logo.svg';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
+    const location = useLocation();
+    const navigate = useNavigate();
+    let errorMsg;
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        setEmail(email);
-        setPassword(password);
-
+        // setEmail(email);
+        // setPassword(password);
+        signInWithEmailAndPassword(email, password);
+    }
+    if(error){
+        errorMsg = error.message;
+    }
+    if(loading){
+        return <Loading></Loading>
+    }
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
     }
     // console.log(password, email);
     return (
@@ -22,8 +39,8 @@ const Login = () => {
             <div className='logo__main py-4 absolute top-5'>
                 <Link to='/'><img src={logo} alt="" /></Link>
             </div>
-            <div class="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-4 ">
-                <div class="lg:col-span-2 lg:block md:block hidden">
+            <div className="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-4 ">
+                <div className="lg:col-span-2 lg:block md:block hidden">
                     <div className='login__image'>
                         <img className='lg:w-4/5 w-full' src={loginImage} alt="" />
                     </div>
@@ -43,8 +60,11 @@ const Login = () => {
                                 <div className='pb-3'>
                                     <Input size="md" label="Password" type="password" name='password' />
                                 </div>
+                                <div className="error__msg">
+                                    <small className='text-red-500'>{errorMsg}</small>
+                                </div>
                                 <div className='py-2'>
-                                    <Button className='font-medium' fullWidth color='Indigo' type="submit">Sign in</Button>
+                                    <Button className='font-medium' fullWidth type="submit">Sign in</Button>
                                     {/* <Link to='/'></Link> */}
                                 </div>
                             </form>
