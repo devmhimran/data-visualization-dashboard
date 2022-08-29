@@ -8,6 +8,8 @@ import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Graph from './Components/Dashboard/graph'
 import Loading from './Components/Loading/Loading';
+import Analytics from './Components/Dashboard/Analytics';
+import NoLink from './Components/Dashboard/NoLink';
 function App() {
   return (
     <div className="">
@@ -29,7 +31,9 @@ function App() {
             <Dashboard></Dashboard>
           </RequireAuth>
         }>
-          <Route index element={<Graph></Graph>}></Route>
+          <Route index element={<Analytics></Analytics>}></Route>
+          <Route path='analytics' element={<Analytics></Analytics>}></Route>
+          <Route path='/no-link' element={<NoLink></NoLink>}></Route>
         </Route>
       </Routes>
     </div>
