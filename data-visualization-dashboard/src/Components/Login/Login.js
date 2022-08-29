@@ -48,6 +48,10 @@ const Login = () => {
                         <CardBody className="text-center text-left">
                             <h1 className='text-xl font-semibold mb-3'>Welcome to Dashboard</h1>
                             <p className='py-3'>Please sign-in to your account and start the adventure</p>
+                            <div className="alert__msg bg-yellow-200 p-2 my-3 rounded">
+                                <p className='text-sm'>Email: lagac49256@rxcay.com</p>
+                                <p className='text-sm'>Password: 0123456</p>
+                            </div>
                             <form onSubmit={handleLoginSubmit}>
                                 <div className='py-2'>
                                     <Input size="md" label="Email" type="email" name='email' required />

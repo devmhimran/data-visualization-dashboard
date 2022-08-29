@@ -23,6 +23,7 @@ const HeaderNav = () => {
     const handleLogout = () => {     
         signOut(auth);
       };
+      console.log(user.displayName)
     return (
         <div className="header__nav">
             <div className="card shadow rounded py-2 px-3">
@@ -41,7 +42,7 @@ const HeaderNav = () => {
                         <div className="header__container__right">
                             <div className="flex">
                                 <div className="avatar__name text-right mr-4">
-                                    <h1 className='font-semibold text-base '>John Doe</h1>
+                                    <h1 className='font-semibold text-base '>{user.displayName}</h1>
                                     <p className='text-xs text-gray-500'>Admin</p>
                                 </div>
                                 <div className="avatar__main">

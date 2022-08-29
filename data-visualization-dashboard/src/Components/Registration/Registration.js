@@ -16,12 +16,12 @@ const Registration = () => {
     const [updateProfile, updating, error] = useUpdateProfile(auth);
     const [mainUser, userLoading, userError] = useAuthState(auth);
     const location = useLocation();
-    let loginError;
+    let signUpErrorMsg;
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
     
     if (signUpError) {
-        loginError = error.message;
+        signUpErrorMsg = signUpError.message;
     }
     if(user){
         navigate(from, {replace:true});
@@ -66,6 +66,9 @@ const Registration = () => {
                                 </div>
                                 <div className='py-2'>
                                     <Input size="md" label="Password" name='password' type='password'/>
+                                </div>
+                                <div className="error__msg">
+                                    <small className='text-red-500'>{signUpErrorMsg}</small>
                                 </div>
                                 <div className='py-2'>
                                     <Button className='font-medium' fullWidth type='submit'>Sign up</Button>
