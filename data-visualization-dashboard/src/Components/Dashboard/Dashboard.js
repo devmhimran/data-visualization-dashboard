@@ -17,8 +17,6 @@ import { BsCalendar4, BsChatLeft, BsEnvelope, BsSearch } from 'react-icons/bs';
 import avatar from '../Assets/avatar.jpg';
 import HeaderNav from '../HeaderNav/HeaderNav';
 
-
-
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
@@ -30,7 +28,7 @@ const Dashboard = () => {
         { title: "Inbox", src: <><BsChatLeft></BsChatLeft></>, Link: "/no-link" },
         { title: "Setting", src: <><AiOutlineSetting></AiOutlineSetting></>, Link: "/no-link" },
     ];
-
+ 
     return (
 
         <div className="flex">
@@ -58,7 +56,6 @@ const Dashboard = () => {
                             <Link to={Menu.Link} className='flex'><span className='text-xl mr-2'>{Menu.src}</span>
                                 <span className={`${!open && "hidden"} origin-left duration-200`}>
                                     {Menu.title}
-                                    {console.log(Menu.Link)}
                                 </span>
                             </Link>
                         </li>

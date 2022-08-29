@@ -13,8 +13,16 @@ import avatar from '../Assets/avatar.jpg';
 import { useState, useEffect } from "react";
 import { BiHomeAlt, BiSelectMultiple, BiUser } from 'react-icons/bi';
 import { AiOutlineArrowLeft, AiOutlineBarChart, AiOutlineStar, AiOutlineSetting } from 'react-icons/ai';
+import auth from '../firebase.init';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 
 const HeaderNav = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const handleLogout = () => {     
+        signOut(auth);
+      };
     return (
         <div className="header__nav">
             <div className="card shadow rounded py-2 px-3">
@@ -47,7 +55,7 @@ const HeaderNav = () => {
                                             <MenuItem className='flex text-base items-center'><span className='mr-2'><BsEnvelope></BsEnvelope></span> Inbox</MenuItem>
                                             <MenuItem className='flex text-base items-center'><span className='mr-2'><BiSelectMultiple></BiSelectMultiple></span> Task</MenuItem>
                                             <MenuItem className='flex text-base items-center'><span className='mr-2'><BsChatLeft></BsChatLeft></span> Chat</MenuItem>
-                                            <MenuItem className='flex text-base items-center'><span className='mr-2'><HiOutlineLogout></HiOutlineLogout></span>Logout</MenuItem>
+                                            <MenuItem className='flex text-base items-center'  onClick={handleLogout}><span className='mr-2'><HiOutlineLogout></HiOutlineLogout></span>Logout</MenuItem>
                                         </MenuList>
                                     </Menu>
                                 </div>

@@ -41,8 +41,6 @@ const Registration = () => {
 
     }
 
-    console.log(username, email, password);
-
     return (
         <div className="registration container max-w-screen-xl mx-auto h-screen flex items-center">
             <div className='logo__main py-4 absolute top-2'>

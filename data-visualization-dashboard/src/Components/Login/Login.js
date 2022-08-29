@@ -19,9 +19,11 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        // setEmail(email);
-        // setPassword(password);
         signInWithEmailAndPassword(email, password);
+    }
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
     }
     if(error){
         errorMsg = error.message;
@@ -29,11 +31,7 @@ const Login = () => {
     if(loading){
         return <Loading></Loading>
     }
-    let from = location.state?.from?.pathname || "/";
-    if (user) {
-        navigate(from, { replace: true });
-    }
-    // console.log(password, email);
+    
     return (
         <div className="login container max-w-screen-xl mx-auto h-screen flex items-center">
             <div className='logo__main py-4 absolute top-5'>
