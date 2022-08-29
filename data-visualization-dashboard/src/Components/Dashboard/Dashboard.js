@@ -2,81 +2,35 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../Assets/dashboard-visualization-logo.svg';
 import { useState, useEffect } from "react";
-import { BiHomeAlt, BiUser } from 'react-icons/bi';
-import { AiOutlineArrowLeft, AiOutlineBarChart, AiOutlineSetting } from 'react-icons/ai';
+import { BiHomeAlt, BiSelectMultiple, BiUser } from 'react-icons/bi';
+import { AiOutlineArrowLeft, AiOutlineBarChart, AiOutlineStar, AiOutlineSetting } from 'react-icons/ai';
+import { HiOutlineLogout } from 'react-icons/hi';
 import {
-    Navbar,
-    MobileNav,
-    Typography,
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
     Button,
-    IconButton,
+    Avatar
 } from "@material-tailwind/react";
-import { BsCalendar4, BsChatLeft, BsSearch } from 'react-icons/bs';
+import { BsCalendar4, BsChatLeft, BsEnvelope, BsSearch } from 'react-icons/bs';
+import avatar from '../Assets/avatar.jpg';
+
+
+
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
         { title: "Dashboard", src: <><BiHomeAlt ></BiHomeAlt></> },
-        { title: "Inbox", src: <><BsChatLeft></BsChatLeft></> },
+        { title: "Analytics", src: <><AiOutlineBarChart></AiOutlineBarChart></> },
         { title: "Accounts", src: <><BiUser></BiUser></>, gap: true },
         { title: "Schedule ", src: <><BsCalendar4></BsCalendar4></> },
         { title: "Search", src: <><BsSearch></BsSearch></> },
-        { title: "Analytics", src: <><AiOutlineBarChart></AiOutlineBarChart></> },
+        { title: "Inbox", src: <><BsChatLeft></BsChatLeft></> },
         // { title: "Files ", src: <><AiOutlineSetting></AiOutlineSetting></>, gap: true },
         { title: "Setting", src: <><AiOutlineSetting></AiOutlineSetting></> },
     ];
-    const [openNav, setOpenNav] = useState(false);
 
-    useEffect(() => {
-        window.addEventListener(
-            "resize",
-            () => window.innerWidth >= 960 && setOpenNav(false)
-        );
-    }, []);
-
-    const navList = (
-        <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Pages
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Account
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Blocks
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Docs
-                </a>
-            </Typography>
-        </ul>
-    );
     return (
 
         <div className="flex">
@@ -126,65 +80,50 @@ const Dashboard = () => {
             <div className="h-screen flex-1 p-7">
                 {/* <h1 className="text-2xl font-semibold ">Home Page</h1>
            */}
-                <Navbar className="max-w-full  py-2 px-4 lg:px-8 lg:py-4">
-                    <div className="w-full flex items-center justify-between text-blue-gray-900">
-                        <Typography
-                            as="a"
-                            href="#"
-                            variant="small"
-                            className="mr-4 cursor-pointer py-1.5 font-normal"
-                        >
-                            <span>Material Tailwind</span>
-                        </Typography>
-                        <div className="hidden lg:block">{navList}</div>
-                        <Button variant="gradient" size="sm" className="hidden lg:inline-block">
-                            <span>Buy Now</span>
-                        </Button>
-                        <IconButton
-                            variant="text"
-                            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-                            ripple={false}
-                            onClick={() => setOpenNav(!openNav)}
-                        >
-                            {openNav ? (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    className="h-6 w-6"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                </svg>
-                            ) : (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                </svg>
-                            )}
-                        </IconButton>
+
+                <div className="header__nav">
+                    <div className="card shadow rounded py-2 px-3">
+                        <div className="card-body ">
+                            <div className="header__container__main flex lg:justify-between justify-end items-center">
+
+                                <div className="header__container__left lg:block md:hidden hidden">
+                                    <div className="header__container__left__main flex ">
+                                        <span className='text-lg mr-4 text-gray-600'><BsCalendar4></BsCalendar4></span>
+                                        <span className='text-lg mr-4 text-gray-600'><BsChatLeft></BsChatLeft></span>
+                                        <span className='text-xl mr-4 text-gray-600'><BsEnvelope></BsEnvelope></span>
+                                        <span className='text-xl mr-4 text-gray-600'><BiSelectMultiple></BiSelectMultiple></span>
+                                        <span className='text-xl mr-4 text-gray-600'><AiOutlineStar></AiOutlineStar></span>
+                                    </div>
+                                </div>
+                                <div className="header__container__right">
+                                    <div className="flex">
+                                        <div className="avatar__name text-right mr-4">
+                                            <h1 className='font-semibold text-base '>John Doe</h1>
+                                            <p className='text-xs text-gray-500'>Admin</p>
+                                        </div>
+                                        <div className="avatar__main">
+                                            <Menu placement="bottom-end">
+                                                <MenuHandler>
+                                                    <Avatar src={avatar} alt="avatar" variant="circular" />
+                                                    {/* <Button variant="gradient">Open Menu</Button> */}
+                                                </MenuHandler>
+                                                <MenuList>
+                                                    <MenuItem className='flex text-base items-center'><span className='mr-2'><BiUser></BiUser></span> Profile</MenuItem>
+                                                    <MenuItem className='flex text-base items-center'><span className='mr-2'><BsEnvelope></BsEnvelope></span> Inbox</MenuItem>
+                                                    <MenuItem className='flex text-base items-center'><span className='mr-2'><BiSelectMultiple></BiSelectMultiple></span> Task</MenuItem>
+                                                    <MenuItem className='flex text-base items-center'><span className='mr-2'><BsChatLeft></BsChatLeft></span> Chat</MenuItem>
+                                                    <MenuItem className='flex text-base items-center'><span className='mr-2'><HiOutlineLogout></HiOutlineLogout></span>Logout</MenuItem>
+                                                </MenuList>
+                                            </Menu>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <MobileNav open={openNav}>
-                        {navList}
-                        <Button variant="gradient" size="sm" fullWidth className="mb-2">
-                            <span>Buy Now</span>
-                        </Button>
-                    </MobileNav>
-                </Navbar>
+                </div>
             </div>
         </div>
     );
