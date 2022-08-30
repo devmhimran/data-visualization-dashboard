@@ -48,7 +48,7 @@ const HeaderNav = () => {
                                 <div className="avatar__main">
                                     <Menu placement="bottom-end">
                                         <MenuHandler>
-                                            <Avatar src={avatar} alt="avatar" variant="circular" />
+                                            <Avatar className='border-2 border-yellow-500' src={avatar} alt="avatar" variant="circular" />
                                             {/* <Button variant="gradient">Open Menu</Button> */}
                                         </MenuHandler>
                                         <MenuList>
