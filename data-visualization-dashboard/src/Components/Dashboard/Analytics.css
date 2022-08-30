@@ -1,0 +1,10 @@
+.recharts-text{
+    font-size: 14px;
+}
+.recharts-wrapper{
+    width: 100% !important;
+    height: 600px;
+}
+.recharts-surface{
+    width: 100% !important;
+}

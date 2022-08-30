@@ -6,7 +6,6 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
-import Graph from './Components/Dashboard/graph'
 import Loading from './Components/Loading/Loading';
 import Analytics from './Components/Dashboard/Analytics';
 import NoLink from './Components/Dashboard/NoLink';
