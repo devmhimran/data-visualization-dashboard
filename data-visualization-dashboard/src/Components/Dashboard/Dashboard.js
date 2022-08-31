@@ -34,7 +34,7 @@ const Dashboard = () => {
         <div className="flex">
             <div
                 className={` ${open ? "w-56" : "w-20 "
-                    } bg-gray-100 h-screen p-5 fixed pt-8 duration-300`}
+                    } bg-gray-100 h-screen p-5 z-50 fixed pt-8 duration-300`}
             >
                 <AiOutlineArrowLeft
                     className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
