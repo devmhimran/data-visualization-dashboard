@@ -23,7 +23,6 @@ const HeaderNav = () => {
     const handleLogout = () => {     
         signOut(auth);
       };
-      console.log(user.displayName)
     return (
         <div className="header__nav">
             <div className="card shadow rounded py-2 px-3">

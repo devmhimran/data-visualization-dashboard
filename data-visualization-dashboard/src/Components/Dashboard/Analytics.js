@@ -6,12 +6,10 @@ import './Analytics.css'
 const Analytics = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/devmhimran/dummy-api/main/Data-Visualization-Api/jsondata.json')
+        fetch('https://data-visualization-server.vercel.app/data')
             .then(res => res.json())
             .then(data => setData(data))
-    }, [])
-    console.log(data)
-
+    }, []);
     return (
         <div className=''>
             Analytics
