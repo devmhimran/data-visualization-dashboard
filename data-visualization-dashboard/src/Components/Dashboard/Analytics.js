@@ -1,60 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import GraphChart from './GraphChart';
-import { Area, AreaChart, CartesianGrid, Pie, PieChart, Legend, Bar, XAxis, YAxis, Tooltip, BarChart, RadarChart, PolarGrid, ResponsiveContainer, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { Area, AreaChart, CartesianGrid, Pie, PieChart, Legend, Bar, XAxis, YAxis, Tooltip, BarChart, ResponsiveContainer } from 'recharts';
 import './Analytics.css'
 
 const Analytics = () => {
     const [data, setData] = useState([]);
-    const style = {
-        top: '50%',
-        right: 0,
-        transform: 'translate(0, -50%)',
-        lineHeight: '24px',
-    };
     useEffect(() => {
         fetch('https://data-visualization-server.vercel.app/data')
             .then(res => res.json())
             .then(data => setData(data))
     }, []);
-    const data1 = [
-        {
-            subject: 'Math',
-            A: 120,
-            B: 110,
-            fullMark: 150,
-        },
-        {
-            subject: 'Chinese',
-            A: 98,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'English',
-            A: 86,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'Geography',
-            A: 99,
-            B: 100,
-            fullMark: 150,
-        },
-        {
-            subject: 'Physics',
-            A: 85,
-            B: 90,
-            fullMark: 150,
-        },
-        {
-            subject: 'History',
-            A: 65,
-            B: 85,
-            fullMark: 150,
-        },
-    ];
-
     return (
         <div className='w-auto ml-20'>
             <div className="analytics__main">

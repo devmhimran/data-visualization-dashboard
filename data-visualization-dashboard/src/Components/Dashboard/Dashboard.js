@@ -69,12 +69,6 @@ const Dashboard = () => {
         </div>
     );
 
-
-    // <div className='bg-red-900'>
-
-    //     <Outlet></Outlet>
-    // </div>
-
 };
 
 export default Dashboard;
