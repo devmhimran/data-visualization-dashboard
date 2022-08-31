@@ -56,9 +56,10 @@ const Analytics = () => {
     ];
 
     return (
-        <div className='h-screen w-auto ml-20'>
+        <div className='w-auto ml-20'>
+            <div className="analytics__main">
             Analytics
-            <div className='card shadow-lg p-3 rounded-2xl'>
+            <div className='card bg-white shadow-lg p-3 rounded-xl'>
                 <div className="card-body">
                     <ResponsiveContainer width="100%" height={400}>
                         <AreaChart
@@ -82,8 +83,8 @@ const Analytics = () => {
 
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-4">
-                <div className="card shadow-lg rounded-2xl mt-28">
+            <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
+                <div className="card bg-white shadow-lg rounded-xl mt-28">
                     <div className="card-body">
                         <ResponsiveContainer width="100%" height={400}>
                             <PieChart width={400} height={400}>
@@ -93,7 +94,7 @@ const Analytics = () => {
                         </ResponsiveContainer>
                     </div>
                 </div>
-                <div className="card shadow-lg rounded-2xl mt-28 col-span-2">
+                <div className="card bg-white p-6 shadow-lg rounded-xl mt-28 col-span-2">
                     <div className="card-body">
                         <ResponsiveContainer width="100%" height={400}>
                             <AreaChart
@@ -119,7 +120,7 @@ const Analytics = () => {
                     </div>
                 </div>
             </div>
-            <div className="card shadow-lg mt-28">
+            <div className="card bg-white p-6 shadow-lg mt-28 mb-10 rounded-xl">
                 <div className="card-body">
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart
@@ -143,6 +144,8 @@ const Analytics = () => {
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
+            </div>
+            <div className='h-5'></div>
             </div>
         </div>
     );

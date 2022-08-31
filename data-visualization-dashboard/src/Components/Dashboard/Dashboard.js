@@ -31,10 +31,10 @@ const Dashboard = () => {
  
     return (
 
-        <div className="flex">
+        <div className="flex bg-gray-50">
             <div
                 className={` ${open ? "w-56" : "w-20 "
-                    } bg-gray-100 h-screen p-5 z-50 fixed pt-8 duration-300`}
+                    } bg-white h-screen className=" p-5 z-50 fixed pt-8 duration-300`}
             >
                 <AiOutlineArrowLeft
                     className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
@@ -62,7 +62,7 @@ const Dashboard = () => {
                     ))}
                 </ul>
             </div>
-            <div className="h-screen flex-1 p-7">
+            <div className=" flex-1 p-7">
                 <HeaderNav></HeaderNav>
                 <Outlet></Outlet>
             </div>

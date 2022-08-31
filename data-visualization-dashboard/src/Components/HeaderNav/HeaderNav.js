@@ -24,8 +24,8 @@ const HeaderNav = () => {
         signOut(auth);
       };
     return (
-        <div className="header__nav w-auto ml-20">
-            <div className="card shadow rounded py-2 px-3">
+        <div className="header__nav w-auto ml-20 bg-white">
+            <div className="card shadow rounded py-2 px-3 rounded">
                 <div className="card-body ">
                     <div className="header__container__main flex lg:justify-between justify-end items-center">
 
