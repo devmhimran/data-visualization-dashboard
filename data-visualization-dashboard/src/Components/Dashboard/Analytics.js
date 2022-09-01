@@ -12,7 +12,7 @@ const Analytics = () => {
     return (
         <div className='w-auto ml-20'>
             <div className="analytics__main">
-            Analytics
+            <h1 className="heading my-6 text-2xl font-semibold text-gray-800">Analytics</h1>
             <div className='card bg-white shadow-lg p-3 rounded-xl'>
                 <div className="card-body">
                     <ResponsiveContainer width="100%" height={400}>

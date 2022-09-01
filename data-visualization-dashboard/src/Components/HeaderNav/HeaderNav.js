@@ -31,23 +31,26 @@ const HeaderNav = () => {
 
                         <div className="header__container__left lg:block md:hidden hidden">
                             <div className="header__container__left__main flex ">
-                                <span className='text-lg mr-4 text-gray-600'><BsCalendar4></BsCalendar4></span>
-                                <span className='text-lg mr-4 text-gray-600'><BsChatLeft></BsChatLeft></span>
-                                <span className='text-xl mr-4 text-gray-600'><BsEnvelope></BsEnvelope></span>
-                                <span className='text-xl mr-4 text-gray-600'><BiSelectMultiple></BiSelectMultiple></span>
-                                <span className='text-xl mr-4 text-gray-600'><AiOutlineStar></AiOutlineStar></span>
+                                <span className='text-lg mr-4 text-gray-600 cursor-pointer'><BsCalendar4></BsCalendar4></span>
+                                <span className='text-lg mr-4 text-gray-600 cursor-pointer'><BsChatLeft></BsChatLeft></span>
+                                <span className='text-xl mr-4 text-gray-600 cursor-pointer'><BsEnvelope></BsEnvelope></span>
+                                <span className='text-xl mr-4 text-gray-600 cursor-pointer'><BiSelectMultiple></BiSelectMultiple></span>
+                                <span className='text-xl mr-4 text-gray-600 cursor-pointer'><AiOutlineStar></AiOutlineStar></span>
                             </div>
                         </div>
                         <div className="header__container__right">
-                            <div className="flex">
+                            <div className="flex items-center">
                                 <div className="avatar__name text-right mr-4">
                                     <h1 className='font-semibold text-base '>{user.displayName}</h1>
                                     <p className='text-xs text-gray-500'>Admin</p>
                                 </div>
-                                <div className="avatar__main">
+                                <div className="avatar__main flex items-center">
                                     <Menu placement="bottom-end">
                                         <MenuHandler>
-                                            <Avatar className='border-2 border-yellow-500' src={avatar} alt="avatar" variant="circular" />
+                                            <span className='p-1.5 rounded-full cursor-pointer border-2 border-indigo-600'>
+                                                <BiUser className='text-2xl'></BiUser>
+                                            </span>
+                                            {/* <Avatar className='border-2 border-yellow-500' src={avatar} alt="avatar" variant="circular" /> */}
                                             {/* <Button variant="gradient">Open Menu</Button> */}
                                         </MenuHandler>
                                         <MenuList>
